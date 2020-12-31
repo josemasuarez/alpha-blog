@@ -8,4 +8,10 @@ begin
     raise e unless ENV['RAILS_ENV'] == "production"
 end
 
+begin
+    require 'rspec/core/rake_task'
+    RSpec::Core::RakeTask.new(:spec)
+  rescue LoadError
+  end
+
 Rails.application.load_tasks
